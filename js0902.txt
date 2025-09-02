@@ -1,0 +1,98 @@
+let card = {suit: "하트",rank:"A"};
+
+card.suit
+card['suit']
+console.log(card.suit);
+
+card.value = 14;
+console.log(card);
+
+let obj={}
+console.log(obj);
+
+delete card.rank;
+
+console.log("suit" in card);
+console.log("color" in card);
+
+let person={
+    name:"홍길동",
+    age:24,
+    sex:"남",
+    married:false
+};
+
+let a = person;
+
+a.name = "김하나";
+
+
+function square(x) {return x*x;}
+square(10);
+
+let sq = square;
+console.log(sq(5));
+
+function add1(p){
+    p.x = p.x+1;
+    p.y = p.y +1;
+    return p;
+}
+let a1 = {x:3, y:4};
+let b1 = add1(a1);
+console.log(b1);
+
+const c =2;
+c=5;    //오류
+
+const origin ={x:1,y:2};  //주소만 안변하고 heap 영역에 있는 값은 바꿀수 있음
+origin.x = 3;  //오류 안남
+
+let circle ={
+    center : {x:1.0,y:2.0},
+    radius: 2.5,
+    area: function(){
+        return Math.PI * this.radius * this.radius;
+    }
+}
+console.log(circle.area());
+
+circle.translate = function(a,b){
+    this.center.x = this.center.x +a;
+    this.center.y = this.center.y+b;
+}
+
+const car = {
+    wheels:4,
+    color:"red",
+    "goes fast" : true,
+    drive:function(){
+        console.log("부응 부응");
+    }
+}
+ console.log(car["goes fast"]);
+console.log(car['wheels']);  
+
+const cars ={
+    ferrari : "california",
+    porsche:"911",
+    bugatti:"veyron"
+};
+const key="ferrari";
+console.log(cars[key]);
+
+let car1 ={
+    color:'red',
+};
+let secondCar =car1;
+car1.wheel=4;
+car1 ==secondCar;   //값이 같으면 true
+car1 ===secondCar;  //값,타입이 같으면 true
+
+10=='10';  //true
+10==='10'; //false
+
+const fruitBasket = ['apple','banana','orange'];
+console.log(fruitBasket[0]);
+console.log(fruitBasket.length);
+fruitBasket.push('pear');

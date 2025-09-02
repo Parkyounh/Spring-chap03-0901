@@ -77,7 +77,7 @@ public class MainForSpring {
 	}
 	
 	private static void processListCommand() {
-		MemberListPrinter listPrinter = ctx.getBean("listPrinter",MemberListPrinter.class);
+		MemberListPrinter listPrinter = ctx.getBean("listPrinter", MemberListPrinter.class);
 		listPrinter.printAll();
 	}
 	
