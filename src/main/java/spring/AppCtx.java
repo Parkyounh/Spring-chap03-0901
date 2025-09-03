@@ -3,21 +3,22 @@ package spring;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+
 @Configuration
 public class AppCtx {
 	@Bean
 	public MemberDao memberDao() {
 		return new MemberDao();
 	}
+	
 	@Bean
-	public MemberRegisterService memberRegSvc() {
-		return new MemberRegisterService(memberDao());
+	public MemberRegisterService memberRegisterService() {
+		return new MemberRegisterService();
 	}
+	
 	@Bean
-	public ChangePasswordService changePwdSvc() {
-		ChangePasswordService pwdSvc = new ChangePasswordService();
-		pwdSvc.setMemberDao(memberDao());
-		return pwdSvc;
+	public ChangePasswordService changePasswordService() {
+		return new ChangePasswordService();
 	}
 	
 	@Bean
@@ -26,7 +27,21 @@ public class AppCtx {
 	}
 	
 	@Bean
-	public MemberListPrinter listPrinter() {
-		return new MemberListPrinter(memberDao(), memberPrinter());
+	public MemberListPrinter memberListPrinter() {
+		return new MemberListPrinter();
 	}
+	
+	@Bean
+	public MemberInfoPrinter memberInfoPrinter() {
+		return new MemberInfoPrinter();
+	}
+	
+	@Bean
+	public VersionPrinter versionPrinter() {
+		VersionPrinter v = new VersionPrinter();
+		v.setMajorVersion(5);
+		v.setMinorVersion(2);
+		return v;
+	}
+
 }

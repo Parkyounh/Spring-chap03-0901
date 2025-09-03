@@ -8,15 +8,16 @@ public class Member {
 	private String password;
 	private String name;
 	private LocalDateTime registerDateTime;
-	
-	public Member(String email, String password,String name,LocalDateTime regDateTime) {
+
+	public Member(String email, String password, 
+			String name, LocalDateTime regDateTime) {
 		this.email = email;
 		this.password = password;
 		this.name = name;
 		this.registerDateTime = regDateTime;
 	}
-	
-	public void setId(Long id) {
+
+	void setId(Long id) {
 		this.id = id;
 	}
 
@@ -39,13 +40,10 @@ public class Member {
 	public LocalDateTime getRegisterDateTime() {
 		return registerDateTime;
 	}
-	
+
 	public void changePassword(String oldPassword, String newPassword) {
-		if(!password.equals(oldPassword)) {
+		if (!password.equals(oldPassword))
 			throw new WrongIdPasswordException();
-		}
-		this.password=newPassword;
+		this.password = newPassword;
 	}
-	
-	
 }
